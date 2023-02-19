@@ -126,3 +126,5 @@ predefined_cmap_names = {
     'Identity-H': 'Identity-H',
     'Identity-V': 'Identity-H'
 }
+
+DEFAULT_LOGGING_LEVEL = 'WARNING'

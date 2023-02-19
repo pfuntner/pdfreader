@@ -2,14 +2,18 @@ import codecs
 import logging
 log = logging.getLogger(__name__)
 import pkg_resources
+import os
 
 from io import BytesIO
 
 from ..codecs.differences import DifferencesCodec
-from ..constants import DEFAULT_ENCODING, predefined_cmap_names
+from ..constants import DEFAULT_ENCODING, predefined_cmap_names, DEFAULT_LOGGING_LEVEL
 from ..parsers.cmap import CMapParser
 from ..types.native import HexString, Name
 from . import register_pdf_encodings
+
+log_level = os.environ.get('PDFREADER_LOGGING_LEVEL') or DEFAULT_LOGGING_LEVEL
+log.setLevel(logging.getLevelNamesMapping()[log_level])
 
 register_pdf_encodings()
 
